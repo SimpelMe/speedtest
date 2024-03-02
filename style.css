@@ -199,6 +199,10 @@ button#startStopBtn {
   margin-bottom: 2em;
 }
 
+.testGroupParent {
+  margin-bottom: 1em;
+}
+
 p {
   margin-block-start: 0;
 }
