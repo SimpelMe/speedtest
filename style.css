@@ -81,6 +81,10 @@ input, button, textarea, select {
 
 ***************************************************************************** */
 
+.testName {
+  text-align: right;
+}
+
 div.meterText {
   font-size: 1.8em;
   text-align: right;
@@ -88,6 +92,7 @@ div.meterText {
 
 div.unit {
   font-size: 0.65em;
+  text-align: right;
 }
 
 p, #ipArea {
