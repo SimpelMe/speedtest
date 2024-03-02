@@ -1,77 +1,14 @@
-:root {
-  --default-top-padding: 1.5em;
-  --default-body-bottom-margin: 2vmin;
-  --default-min-font-size-px: 12px;
-  --default-min-font-size: 12;
-  --default-max-font-size-px: 18px;
-  --default-max-font-size: 18;
-}
-
-/* *****************************************************************************
-
-  personal header styling
-
-***************************************************************************** */
-
-html {
-  /* see: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/#comment-1769978 - comment by MaxDesign */
-  font-size:calc(var(--default-min-font-size-px) + (var(--default-max-font-size) - var(--default-min-font-size)) * ((100vw - 360px) / 1560));
-  font-size: clamp(var(--default-min-font-size-px), calc(var(--default-min-font-size-px) + (var(--default-max-font-size) - var(--default-min-font-size)) * ((100vw - 360px) / 1560)), var(--default-max-font-size-px));
-}
-
 body {
-  height: calc(100vh - 3vmin); /* minus margin-top - margin bottom is 0 */
-  font-size: inherit;
-  font-family: helvetica, Arial, sans-serif;
-  background-color: #555;
-  color: white;
-  /* margin-bottom is calculated here to 0
-  this margin must be set by the lowest elements,
-  because they should go to the very bottom */
-  margin: 3vmin 4vmin calc(var(--default-body-bottom-margin) - var(--default-body-bottom-margin)) 4vmin;
-}
-
-*:focus {
-  outline: 2px solid white;
-  outline-offset: 2px;
-}
-
-a {
-  color: #ffffff;
-}
-
-header a {
-  text-decoration: none;
-}
-
-/* kind of disabled link - text-decoration will be none automatically */
-a:not([href]) {
-  color: #AAAAAA;
+  font-size: 2em;
 }
 
 header {
   margin-bottom: 1.5em;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  column-gap: 0.7em;
+main {
+  font-size: 0.75em;
 }
-
-h1 {
-  font-size: 1.5em;
-  margin: 0;
-}
-
-#github {
-  margin-left: auto;
-}
-
-#github-cat {
-  height: 1.5em;
-}
-
 /* *****************************************************************************
 
   reset user agent styles
@@ -144,16 +81,23 @@ input, button, textarea, select {
 
 ***************************************************************************** */
 
-button#startStopBtn {
-  font-size: 1.4em;
-}
-
-div.testName {
-  font-size: 1.4em;
-}
-
 div.meterText {
-  font-size: 2.5em;
+  font-size: 1.8em;
+  text-align: right;
+}
+
+div.unit {
+  font-size: 0.65em;
+}
+
+p, #ipArea {
+  font-size: 0.65em;
+  word-break: break-word;
+}
+
+p#source {
+  text-align: right;
+  word-break: break-word;
 }
 
 /* *****************************************************************************
@@ -214,7 +158,7 @@ details summary {
 }
 
 div.meterText:empty:before {
-  content: "0.00";
+  content: "0\.00";
 }
 
 /* *****************************************************************************
@@ -232,7 +176,6 @@ button, input[type=button] {
 }
 
 button#startStopBtn {
-  margin-top: 1em;
   margin-left: auto;
   margin-right: auto;
   padding: 0.35em 0.7em;
@@ -255,10 +198,14 @@ p {
   margin-block-start: 0;
 }
 
+p, #ipArea {
+  margin-bottom: 1.5em
+}
+
 p#source {
-  margin-top: 2em;
   margin-left: auto;
 }
+
 /* *****************************************************************************
 
   positioning of elements
@@ -278,41 +225,12 @@ main {
   height: 100%
 }
 
-button#startStopBtn {
-  width: fit-content;
-}
-
-div.testArea {
-  display: inline-block;
-  position: relative;
-  width: 12em;
-  height: 9em;
-  box-sizing: border-box;
-}
-
-div.testName {
+#progress {
   position: absolute;
-  width: 100%;
-  top: 0.1em;
+  height: 100%;
+  width: 0%;
+  top: 0;
   left: 0;
-}
-
-div.meterText {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 1.2em;
-}
-
-div.unit {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 2em;
-}
-
-div.testGroup {
-  display: inline-block;
 }
 
 #progressBar {
@@ -322,12 +240,39 @@ div.testGroup {
   height: 0.2em;
 }
 
-#progress {
-  position: absolute;
-  height: 100%;
-  width: 0%;
-  top: 0;
-  left: 0;
+button#startStopBtn {
+  width: fit-content;
+}
+
+.testGroupParent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2.5em;
+  row-gap: 1em;
+}
+
+div.testGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2.5em;
+  row-gap: 1em;
+}
+
+div.testArea {
+  display: grid;
+  position: relative;
+  box-sizing: border-box;
+}
+
+div.meterText {
+  width: 5.5ch
+}
+
+div.unit {
+  position: relative;
+  top: -1em;
 }
 
 p#source {

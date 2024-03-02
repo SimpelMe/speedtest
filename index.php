@@ -5,8 +5,8 @@
   <?php include dirname($_SERVER['DOCUMENT_ROOT']) . "/simpel.cc/php/head.php"; ?>
   <meta charset="utf-8" />
   <title>Speedtest</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="speedtest.js"></script>
+  <link rel="stylesheet" href="style.min.css">
+  <script src="speedtest.min.js"></script>
 </head>
 
 <body>
